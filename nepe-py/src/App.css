@@ -1,0 +1,242 @@
+@font-face {
+    font-family: 'TitilliumWeb-Regular';
+    src: url('assets/fonts/TitilliumWeb-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TitilliumWeb-Bold';
+    src: url('assets/fonts/TitilliumWeb-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: bold;
+}
+@font-face {
+    font-family: 'TitilliumWeb-SemiBold';
+    src: url('assets/fonts/TitilliumWeb-SemiBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: bold;
+}
+
+body {
+    font-family: 'TitilliumWeb-Regular'!important;
+}
+.div-h{
+    height:100%;
+    background-color: green;
+}
+.font-titi-bold{
+    font-family: 'TitilliumWeb-Bold'!important;
+}
+.font-titi-semi{
+    font-family: 'TitilliumWeb-SemiBold'!important;
+}
+.font-titi-regular {
+    font-family: 'TitilliumWeb-Regular' !important;
+}
+main{
+    background-color:#131313 !important;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #ebaddc !important;
+}
+
+.btn-outline-success {
+    color: #efbefd !important;
+    border-color: #efbefd !important;
+}
+.btn-outline-success:hover
+{
+    color:#9cffdd !important;
+    background-color:#000000 !important;
+    border-color:#9cffdd !important;
+}
+
+.btn-check:focus+.btn-outline-success,.btn-outline-success:focus
+{
+    box-shadow:0 0 0 .1rem #9cffdd !important;
+}
+.btn-check:active+.btn-outline-success,
+.btn-check:checked+.btn-outline-success,
+.btn-outline-success.active,
+.btn-outline-success.dropdown-toggle.show,
+.btn-outline-success:active
+{
+    color:#fff !important;
+    background-color:#efbefd !important;
+    border-color:#efbefd !important;
+}
+.btn-check:active+.btn-outline-success:focus,
+.btn-check:checked+.btn-outline-success:focus,
+.btn-outline-success.active:focus,
+.btn-outline-success.dropdown-toggle.show:focus,
+.btn-outline-success:active:focus
+{
+    box-shadow:0 0 0 .25rem #efbefd !important;
+}
+.btn-outline-success.disabled,
+.btn-outline-success:disabled
+{
+    color:#efbefd !important;
+    background-color:transparent !important;
+}
+.bg-pink{
+    background-color: #efbefd;
+}
+.black-p{
+    color: #000000!important;
+    padding-left: 10px!important;
+    font-weight: bold!important;
+}
+.btn-mint{
+    padding-top: 10px!important;
+    padding-bottom: 10px!important;
+    padding-left: 40px!important;
+    padding-right: 40px!important;
+    letter-spacing: 5px!important;
+    transition: none!important;
+    
+}
+.btn-mint-:hover
+{
+    width: 200px!important;
+    height: 55px!important;
+    color:#9cffdd !important;
+    background-image:url('assets/img/nepebu.jpg');
+    border-color:#efbefd !important;
+}
+.btn-gallery{
+    padding-top: 10px!important;
+    padding-bottom: 10px!important;
+    padding-left: 60px!important;
+    padding-right: 60px!important;
+    letter-spacing: 2px!important;
+}
+.btn-pink {
+    color: #fff;
+    background-color: #efbefd!important;
+    border-color: #222;
+    padding-top: 10px!important;
+    padding-bottom: 10px!important;
+}
+.nav-link {
+    display: block !important;
+    padding: 0.1rem 1rem !important;
+    /*color: #ebaddc !important;*/
+    color: #ffffff !important;
+    text-decoration: none !important;
+    /*transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out !important;*/
+    transition: none!important;
+}
+.nav-link.gris  {
+    display: block !important;
+    padding: 0.1rem 1rem !important;
+    color: #9f9f9f !important;
+    text-decoration: none !important;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out  !important;
+}
+.nav-link:hover {
+    color: #ffffff !important; 
+}
+.goal-b{
+    background-color: #000000;
+    padding-top:15px;
+    padding-bottom:15px;
+    padding-left:30px;
+    margin-top:15px;
+}
+.goal-pink {
+    color: #efbefd;
+    font-weight: 500;
+    font-weight: bold!important;
+}
+.goal-gray {
+    color: #a6a6a6;
+    font-weight: 500;
+    font-size: 20px;
+}
+.goal-center-item{
+    height:45px!important;
+}
+.team-title-pink{
+    color: #ebaddc!important;
+    font-weight: bold!important;
+    font-style: italic!important;
+
+}
+.team-name-pink{
+    color: #ebaddc!important;
+    font-weight: bold!important;
+}
+.select-buy{
+    width: 100px!important;;
+}
+.accordion-item {
+    background-color: #060606;
+    border: 1px solid rgba(0,0,0,.125);
+    border-bottom: 1px solid #ebaddc!important;
+}
+.accordion-button {
+    color: #ebaddc!important;
+    padding: .8rem .8rem!important;
+}
+.accordion-button:not(.collapsed) {
+    color: #060606!important;
+    background-color: #ebaddc!important;
+    box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%)!important;
+}
+.colour-gray{
+    color: #a6a6a6;
+  }
+
+::-webkit-scrollbar {
+    width: 25px!important;
+    
+  }
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-image:url('assets/img/nepeb.png');
+    background-repeat: no-repeat;
+    height: 100px!important;
+    background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  }
+  .text-justify {
+    text-align: justify;
+  }
+
+  .nav-link6, .nav-link-active {
+    display: block !important;
+    padding: 0.1rem 1rem !important;
+    color: #ebaddc !important;
+    text-decoration: none !important;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out !important;
+    text-align: end;
+}
+
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(0,0,0, 0.5);
+}
+
+.popup_inner {
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    top: 25%;
+    bottom: 25%;
+    margin: auto;
+    background: white;
+}
+
+
+
