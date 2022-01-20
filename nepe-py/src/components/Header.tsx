@@ -1,10 +1,13 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Navbar, Nav, Form, Button, Container } from 'react-bootstrap'
 import con_penis_41 from 'src/assets/about/con_penis_41.png'
 import icon_discord from 'src/assets/socials_store_icons/icon_discord.png'
 import icon_twitter from 'src/assets/socials_store_icons/icon_twitter.png'
 import icon_opensea from 'src/assets/socials_store_icons/icon_opensea.png'
-import Swal from "sweetalert2"
+import Swal from "sweetalert2";
+
+declare let window: any;
+type currentAccountForParentType = (account: string) => void;
 
 
 const modalCS=()=>{
@@ -15,6 +18,58 @@ const modalCS=()=>{
   )
 };
 export const Header = () => {
+
+  const [currentAccount, setCurrentAccount] = useState("");
+
+  const connectWallet = async () => {
+      try {
+          const { ethereum } = window;
+          if (!ethereum) {
+          console.log("no metamask detected");
+          } else {
+          const accounts = await ethereum.request({ method: "eth_requestAccounts"});
+
+          if (accounts.length !== 0) {
+              const account = accounts[0];
+              setCurrentAccount(account);
+              console.log(`add account: ${account}`);
+              console.log("have account", account);
+          } else {
+              console.log("no accounts!");
+          }
+          }
+      } catch (error) {
+          console.log("error", error);
+      }
+    }
+
+    const checkIfWalletIsConnected = async () => {
+      const { ethereum } = window;
+
+      if (!ethereum) {
+          console.log("Make sure you have metamask!");
+          return;
+      } else {
+          console.log("We have the ethereum object");
+      }
+
+      const accounts = await ethereum.request({ method: 'eth_accounts' });
+
+      if (accounts.length !== 0) {
+          const account = accounts[0];
+          setCurrentAccount(account)
+          console.log("have an account on homescreen");
+      } else {
+          console.log("no account");
+      }
+
+    }
+
+    useEffect(() => {
+        checkIfWalletIsConnected();
+        console.log(`current account on navbar: ${currentAccount}`);
+    }, []);
+
     return (
         <div id="about" >
            <Navbar  collapseOnSelect expand="lg" bg="dark" variant="dark" className="fixed-top">
@@ -67,8 +122,10 @@ export const Header = () => {
                 </Nav>
                 <hr className="d-md-none text-white-50"></hr>
                 <Form className="pt-2 d-flex my-2 my-md-0">
-                            <Button variant="outline-success font-titi-bold" style={{ marginLeft: "1rem", width: 130, fontSize: 12 }} size="sm" onClick={()=>modalCS()}>CONNECT</Button>
-                  </Form>
+                  <Button variant="outline-success font-titi-bold" style={{ marginLeft: "1rem", width: 130, fontSize: 12 }} size="sm" onClick={connectWallet}>
+                    {currentAccount=="" ? "CONNECT" : `${currentAccount.substring(0,8)}...`}
+                  </Button>
+                </Form>
               </Navbar.Collapse>
             </Container>
           </Navbar>

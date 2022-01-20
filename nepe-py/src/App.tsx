@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import './App.css';
 import './assets/theme-dark/dark.css';
 import {Header} from './components/Header';
@@ -12,7 +12,7 @@ import HomeScreen from './screens/HomeScreen';
 import GalleryScreen from './screens/GalleryScreen';
 import BuyScreen from './screens/BuyScreen';
 
-function App() {
+const App = () => {
   return (
   <>
 <Header />
