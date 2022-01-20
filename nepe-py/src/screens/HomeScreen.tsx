@@ -19,16 +19,17 @@ import { ethers } from "ethers";
 import Web3 from 'web3';
 declare let window: any;
 
-const modalCSWalletNotConnected=()=>{
-	Swal.fire(
-    'Connect your wallet!',
-    'Metamask preferred',
-    'info'
-  )
+const modalCSWalletNotConnected=(first:string, second:string)=>{
+	Swal.fire(first, second, 'info');
 };
 const HomeScreen = () => {
 
     const [currentAccount, setCurrentAccount] = useState("");
+
+    useEffect(() => {
+        checkIfWalletIsConnected();
+        console.log(`current account on homescreen: ${currentAccount}`);
+    }, []);
 
     const checkIfWalletIsConnected = async () => {
         const { ethereum } = window;
@@ -44,7 +45,7 @@ const HomeScreen = () => {
 
         if (accounts.length !== 0) {
             const account = accounts[0];
-            setCurrentAccount(account)
+            await setCurrentAccount(account)
             console.log("have an account on homescreen");
         } else {
             console.log("no account");
@@ -53,14 +54,31 @@ const HomeScreen = () => {
     }
 
     const addToWhitelist = async () => {
+        console.log("check for WL");
         await checkIfWalletIsConnected();
-        console.log("add to whitelist");
+        const { ethereum } = window;
+
+        if (!ethereum) {
+            console.log("Make sure you have metamask!");
+            modalCSWalletNotConnected('Connect your wallet!', 'Metamask preferred');
+            return;
+        }
+
+        const accounts = await ethereum.request({ method: 'eth_accounts' });
+
+        if (accounts.length !== 0) {
+            const account = accounts[0];
+            console.log("add to whitelist");
+            await fireWhiteListRequest(account);
+            modalCSWalletNotConnected('Wallet added to Whitelist', String(account));
+        } else {
+            modalCSWalletNotConnected('Connect your wallet!', 'Metamask preferred');
+        }
     }
 
-    useEffect(() => {
-        checkIfWalletIsConnected();
-        console.log(`current account on homescreen: ${currentAccount}`);
-    }, []);
+    const fireWhiteListRequest = async (account:string) => {
+        return;
+    };
 
     // render() {
     return (
@@ -93,11 +111,7 @@ const HomeScreen = () => {
                     </Navbar.Brand>
                     <div className="">
                     {/* <Link to="/buy"> */}
-                    {currentAccount=="" ? (
-                        <Button onClick={modalCSWalletNotConnected} variant="light btn-mint font-titi-semi">JOIN WHITELIST</Button>
-                    ) : (
                         <Button onClick={addToWhitelist} variant="light btn-mint font-titi-semi">JOIN WHITELIST</Button>
-                    )}
                     {/* </Link> */}
                     </div>
                 </Container>

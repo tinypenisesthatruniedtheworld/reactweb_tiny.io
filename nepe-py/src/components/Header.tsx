@@ -58,9 +58,9 @@ export const Header = () => {
       if (accounts.length !== 0) {
           const account = accounts[0];
           setCurrentAccount(account)
-          console.log("have an account on homescreen");
+          console.log("have an account on header");
       } else {
-          console.log("no account");
+          console.log("no account on header");
       }
 
     }
