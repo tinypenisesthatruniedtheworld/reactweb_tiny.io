@@ -1,0 +1,15 @@
+{
+    "path": "/recordWhitelist",
+    "httpMethod": "POST",
+    "headers": {
+        "Accept": "*/*",
+        "Authorization": "eyJraWQiOiJLTzRVMWZs",
+        "content-type": "application/json; charset=UTF-8"
+    },
+    "queryStringParameters": null,
+    "pathParameters": null,
+    "requestContext": {
+        "authorizer": {}
+    },
+    "body": "{\"address\":\"0x15C560d2D9Eb3AF98524aA73BeCBA43E9e6ceF02\"}"
+}

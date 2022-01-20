@@ -52,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "axios": "^0.25.0",
     "web3": "^1.7.0"
   }
 }

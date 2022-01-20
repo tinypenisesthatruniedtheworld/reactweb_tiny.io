@@ -14,6 +14,7 @@ import icono_logo_4 from 'src/assets/team_icons/icono_logo_4.png'
 import tiny_samples_1 from 'src/assets/gallery/tiny_samples_1.png'
 import horrible_people from 'src/assets/gallery/horrible_people.png'
 import Swal from "sweetalert2";
+import axios from "axios";
 
 import { ethers } from "ethers";
 import Web3 from 'web3';
@@ -70,14 +71,22 @@ const HomeScreen = () => {
             const account = accounts[0];
             console.log("add to whitelist");
             await fireWhiteListRequest(account);
-            modalCSWalletNotConnected('Wallet added to Whitelist', String(account));
         } else {
             modalCSWalletNotConnected('Connect your wallet!', 'Metamask preferred');
         }
     }
 
     const fireWhiteListRequest = async (account:string) => {
-        return;
+        var body = {"address": `${account}`};
+        await axios.post("https://67diptgk0a.execute-api.us-east-1.amazonaws.com/prod/whitelist", body)
+            .then(response => {
+                console.log(response);
+                modalCSWalletNotConnected('Wallet added to Whitelist', String(account));
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+                modalCSWalletNotConnected('Error adding to Whitelist', String(account));
+            });
     };
 
     // render() {
